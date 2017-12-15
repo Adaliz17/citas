@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :doctor_id %>
-    <%= form.text_field :doctor_id, id: :cita_medica_doctor_id %>
+    <%= form.select :doctor_id, Doctor.all.collect {|ps| [ps.nombre, ps.id]} %>
   </div>
 
   <div class="field">
     <%= form.label :persona_id %>
-    <%= form.text_field :persona_id, id: :cita_medica_persona_id %>
+    <%= form.select :persona_id, Persona.all.collect {|ps| [ps.nombre, ps.id]}%>
   </div>
 
   <div class="actions">
