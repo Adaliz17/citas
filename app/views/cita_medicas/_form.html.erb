@@ -1,0 +1,32 @@
+<%= form_with(model: cita_medica, local: true) do |form| %>
+  <% if cita_medica.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cita_medica.errors.count, "error") %> prohibited this cita_medica from being saved:</h2>
+
+      <ul>
+      <% cita_medica.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.datetime_select :fecha, id: :cita_medica_fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :doctor_id %>
+    <%= form.text_field :doctor_id, id: :cita_medica_doctor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :persona_id %>
+    <%= form.text_field :persona_id, id: :cita_medica_persona_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
